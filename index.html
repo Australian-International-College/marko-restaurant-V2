@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marko's Restaurant | Authentic Thai Street Food</title>
+  <meta name="description" content="Marko's Restaurant — authentic Thai street food in Sydney. Book a table online." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blue:#063f8f;
+      --blue2:#0b63ce;
+      --navy:#071b3a;
+      --black:#111317;
+      --gold:#c9a24d;
+      --white:#ffffff;
+      --light:#f5f8fc;
+      --soft-blue:#eaf2ff;
+      --muted:#5d6675;
+      --line:#dde5f0;
+      --card:#ffffff;
+      --shadow:0 18px 48px rgba(7,27,58,.12);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--black);background:var(--white);line-height:1.65}
+    a{color:inherit;text-decoration:none} img{max-width:100%;display:block}.wrap{width:min(1180px,92vw);margin:auto}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;border-radius:4px;padding:13px 22px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:.88rem;transition:.2s ease;border:1px solid transparent;cursor:pointer}
+    .btn.primary{background:var(--blue);color:white;box-shadow:0 12px 28px rgba(6,63,143,.22)}.btn.primary:hover{background:var(--blue2);transform:translateY(-1px)}
+    .btn.dark{background:var(--black);color:white}.btn.ghost{background:white;color:var(--blue);border-color:var(--blue)}.btn.ghost:hover{background:var(--soft-blue)}
+    .pill{display:inline-flex;border-left:4px solid var(--gold);background:var(--soft-blue);padding:7px 12px;color:var(--blue);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}
+    .site-header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;min-height:78px}.brand{display:flex;align-items:center;gap:12px;font-weight:900}.logo-mark{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:white;font-family:'Playfair Display',serif;font-size:25px;border:3px solid var(--gold)}.brand span:last-child{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--navy)}
+    .nav-links{display:flex;align-items:center;gap:24px;font-weight:800;color:var(--black);font-size:.92rem}.nav-links a:hover{color:var(--blue)}
+    .hero{background:linear-gradient(180deg,#fff 0%,#f7faff 100%);position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+    .hero:before{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;background:radial-gradient(circle,var(--soft-blue),transparent 70%)}
+    .hero-grid{position:relative;display:grid;grid-template-columns:.95fr 1.05fr;gap:58px;align-items:center;min-height:690px;padding:70px 0}.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,7.5vw,6.4rem);line-height:.96;margin:18px 0;color:var(--navy);letter-spacing:-.04em}.hero h1 em{display:block;color:var(--blue);font-style:normal}.hero p{max-width:610px;color:var(--muted);font-size:1.08rem}.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}.hero-photo{border-radius:10px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:white}.hero-photo img{width:100%;height:560px;object-fit:cover}.hero-caption{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:18px 20px;background:#fff}.hero-caption strong{color:var(--navy)}.hero-caption span{color:var(--gold);font-weight:800}
+    section{padding:84px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:26px;margin-bottom:34px}.section-head h2{font-family:'Playfair Display',serif;font-size:clamp(2.1rem,4.8vw,4rem);line-height:1;margin:12px 0 0;color:var(--navy)}.section-head p{max-width:560px;color:var(--muted);margin:0}
+    .booking-strip{margin-top:-48px;position:relative;z-index:5}.booking-card{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;background:var(--card);border:1px solid var(--line);border-top:5px solid var(--blue);border-radius:10px;padding:28px;box-shadow:var(--shadow)}.booking-card h2{font-family:'Playfair Display',serif;margin:0 0 4px;font-size:2rem;color:var(--navy)}.booking-card p{margin:0;color:var(--muted)}
+    .hours-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:28px}.hours-box,.quote-box,.contact-box,.form-box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:34px;box-shadow:0 12px 34px rgba(7,27,58,.07)}.hours-box strong{font-size:1.28rem;color:var(--navy)}
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.dish{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 12px 35px rgba(7,27,58,.08)}.dish-img{height:250px;overflow:hidden;background:var(--light)}.dish-img img{width:100%;height:100%;object-fit:cover;transition:.3s ease}.dish:hover .dish-img img{transform:scale(1.04)}.dish-body{padding:24px}.dish h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin:0 0 8px;color:var(--navy)}.dish p{color:var(--muted);margin:0}
+    .quote{background:linear-gradient(120deg,var(--navy),var(--blue));color:white;text-align:center}.quote h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,4rem);line-height:1.1;margin:0 auto;max-width:900px}.quote .gold{color:#f3d58b}
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.gallery-item{aspect-ratio:1/1;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--light);position:relative}.gallery-item img{width:100%;height:100%;object-fit:cover;transition:.25s ease}.gallery-item:hover img{transform:scale(1.05)}.gallery-item:before{content:attr(data-name);position:absolute;left:10px;right:10px;bottom:10px;z-index:2;background:rgba(7,27,58,.82);color:white;border-left:4px solid var(--gold);padding:7px 10px;font-size:.78rem;font-weight:800}
+    .booking-section{background:var(--light);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.booking-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:28px;align-items:start}.fake-form{background:white;border:1px solid var(--line);border-radius:10px;padding:24px}.fake-form label{display:block;margin:14px 0 6px;font-weight:800;color:var(--navy)}.fake-form input,.fake-form select,.fake-form textarea{width:100%;padding:13px;border:1px solid #cfd8e6;border-radius:6px;font:inherit;background:white}.fake-note{padding:14px 16px;border-radius:8px;background:var(--soft-blue);border:1px solid #cbdcf5;color:#28415f;font-size:.94rem}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}.contact-box h3{font-family:'Playfair Display',serif;font-size:2rem;margin:0 0 10px;color:var(--navy)}footer{background:var(--black);color:#d8dee8;padding:32px 0}.footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.mobile-book{display:none;position:fixed;left:14px;right:14px;bottom:14px;z-index:60}.mobile-book .btn{width:100%;box-shadow:0 18px 40px rgba(0,0,0,.28)}
+
+    .experience-box{min-height:100%;display:flex;flex-direction:column}
+    .showcase-slider{position:relative;margin-top:24px;border-radius:10px;overflow:hidden;border:1px solid var(--line);height:310px;background:var(--light);box-shadow:0 12px 28px rgba(7,27,58,.08)}
+    .showcase-slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:markoFade 20s infinite}
+    .showcase-slider img:nth-child(1){animation-delay:0s}
+    .showcase-slider img:nth-child(2){animation-delay:5s}
+    .showcase-slider img:nth-child(3){animation-delay:10s}
+    .showcase-slider img:nth-child(4){animation-delay:15s}
+    @keyframes markoFade{0%{opacity:0}8%{opacity:1}25%{opacity:1}33%{opacity:0}100%{opacity:0}}
+    .booking-single{max-width:980px;margin:0 auto}
+    .booking-intro{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:26px}
+    .booking-intro h2{font-family:'Playfair Display',serif;font-size:clamp(2.3rem,5vw,4rem);line-height:1;margin:12px 0 0;color:var(--navy)}
+    .booking-intro p{max-width:560px;color:var(--muted);margin:0}
+    .fake-form .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .fake-form .full{grid-column:1/-1}
+    .staff-login{min-height:100vh;background:var(--light);display:grid;place-items:center;padding:30px}
+    .login-card{width:min(520px,92vw);background:white;border:1px solid var(--line);border-radius:10px;padding:34px;box-shadow:var(--shadow)}
+    .login-card h1{font-family:'Playfair Display',serif;color:var(--navy);font-size:2.6rem;margin:10px 0}
+    .login-card input{width:100%;padding:14px;border:1px solid #cfd8e6;border-radius:6px;font:inherit;margin:8px 0 16px}
+    .dashboard{padding:42px 0;background:var(--light);min-height:100vh}
+    .dash-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:24px}
+    .dash-head h1{font-family:'Playfair Display',serif;color:var(--navy);font-size:3rem;margin:0}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:24px}
+    .stat{background:white;border:1px solid var(--line);border-radius:10px;padding:20px;box-shadow:0 10px 26px rgba(7,27,58,.06)}
+    .stat strong{display:block;font-size:2rem;color:var(--navy)}
+    .booking-table{width:100%;border-collapse:collapse;background:white;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 10px 26px rgba(7,27,58,.06)}
+    .booking-table th,.booking-table td{padding:14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+    .booking-table th{background:var(--soft-blue);color:var(--blue);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em}
+    .empty-state{background:white;border:1px solid var(--line);border-radius:10px;padding:30px;color:var(--muted)}
+
+    @media(max-width:900px){.nav-links a:not(.book){display:none}.hero-grid,.hours-grid,.booking-layout,.contact-grid{grid-template-columns:1fr}.hero-grid{min-height:auto;padding:48px 0 92px}.hero-photo img{height:420px}.booking-card{grid-template-columns:1fr}.menu-grid{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}.mobile-book{display:block}body{padding-bottom:78px}.section-head{display:block}}
+    @media(max-width:700px){.fake-form .form-grid{grid-template-columns:1fr}.booking-intro{display:block}.showcase-slider{height:240px}}
+    @media(max-width:520px){.hero h1{font-size:3.2rem}.brand span:last-child{font-size:1.05rem}.booking-card,.hours-box,.quote-box,.contact-box,.form-box{padding:22px}.gallery{gap:10px}.nav{min-height:66px}.hero-photo img{height:320px}}
+
+    .brand-logo{height:58px;width:auto;max-width:150px;object-fit:contain;display:block}
+    .social-links{display:flex;align-items:center;gap:10px}
+    .social-icon{width:44px;height:44px;border-radius:6px;background:var(--blue);color:white;display:grid;place-items:center;border:1px solid var(--blue);transition:.2s ease}
+    .social-icon:hover{background:var(--blue2);transform:translateY(-1px)}
+    .social-icon svg{width:24px;height:24px;display:block;fill:currentColor}
+    .gallery-more{display:flex;justify-content:center;margin-top:36px}
+    @media(max-width:520px){.brand-logo{height:48px;max-width:128px}.social-icon{width:40px;height:40px}}
+
+    .function-room-section{background:var(--white);border-top:1px solid var(--line)}
+    .function-room-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:stretch}
+    .function-room-main{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 12px 34px rgba(7,27,58,.07)}
+    .function-room-main img{width:100%;height:100%;min-height:520px;object-fit:cover}
+    .function-room-copy{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:34px;box-shadow:0 12px 34px rgba(7,27,58,.07)}
+    .function-room-copy h2{font-family:'Playfair Display',serif;font-size:clamp(2.3rem,5vw,4rem);line-height:1;margin:18px 0;color:var(--navy)}
+    .function-room-copy p{color:var(--muted);margin:0 0 18px}
+    .function-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0 28px;padding:0;list-style:none}
+    .function-list li{border:1px solid var(--line);border-left:4px solid var(--gold);background:var(--soft-blue);border-radius:6px;padding:10px 12px;color:var(--navy);font-weight:800;font-size:.9rem}
+    .function-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+    .function-gallery img{width:100%;height:210px;object-fit:cover;border-radius:10px;border:1px solid var(--line);box-shadow:0 10px 26px rgba(7,27,58,.06)}
+    @media(max-width:900px){.function-room-layout{grid-template-columns:1fr}.function-gallery{grid-template-columns:repeat(2,1fr)}.function-room-main img{min-height:360px}}
+    @media(max-width:520px){.function-list{grid-template-columns:1fr}.function-gallery img{height:170px}}
+
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top"><img class="brand-logo" src="Marko's Logo.jpg" alt="Marko's Restaurant logo"></a>
+      <nav class="nav-links" aria-label="Main navigation"><a href="#menu">Menu</a><a href="#gallery">Gallery</a><a href="#function-room">Function Room</a><a href="#hours">Hours</a><a href="#contact">Contact</a><span class="social-links" aria-label="Social links"><a class="social-icon" href="https://www.facebook.com/MarkoSydney" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.48 17.52 2 11.94 2S2 6.48 2 12.06c0 5.02 3.67 9.18 8.47 9.94v-7.03H7.9v-2.91h2.57V9.84c0-2.54 1.51-3.95 3.83-3.95 1.11 0 2.27.2 2.27.2v2.5h-1.28c-1.26 0-1.65.78-1.65 1.58v1.89h2.81l-.45 2.91h-2.36V22c4.8-.76 8.47-4.92 8.47-9.94z"/></svg></a><a class="social-icon" href="https://www.instagram.com/marko_restaurant/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8zm8.95 1.55a1.35 1.35 0 1 1 0 2.7 1.35 1.35 0 0 1 0-2.7zM12 7.3a4.7 4.7 0 1 1 0 9.4 4.7 4.7 0 0 1 0-9.4zm0 2a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4z"/></svg></a></span></nav>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="pill">Authentic Thai Street Food</span>
+          <h1>The authentic <em>Thai street food</em> Restaurant</h1>
+          <p>We are one of the best Thai street food restaurants in Sydney, bringing special and tasty local food to the vibrant destination of Darlinghurst.</p>
+          <div class="hero-actions"><a class="btn primary" href="#booking">Book a Table Online</a><a class="btn ghost" href="#menu">View Menu</a></div>
+        </div>
+        <figure class="hero-photo">
+          <img src="images/Marko-Grilled-Chicken.jpg" alt="Marko’s grilled chicken">
+          <figcaption class="hero-caption"><strong>Marko’s Grilled Chicken</strong><span>Signature dish</span></figcaption>
+        </figure>
+      </div>
+    </section>
+    <div class="wrap booking-strip"><div class="booking-card"><div><h2>Reserve your table without calling</h2><p>Open daily from 7:00 AM to 3:00 PM and 5:00 PM to 10:00 PM. Online booking helps the team confirm details clearly during busy service hours.</p></div><a class="btn primary" href="#booking">Book Now</a></div></div>
+    <section id="hours"><div class="wrap hours-grid"><div class="hours-box"><span class="pill">Opening Hours</span><h2 style="font-family:'Playfair Display',serif;font-size:3rem;line-height:1;margin:18px 0 8px;color:var(--navy)">Monday – Sunday</h2><strong>7:00 AM – 3:00 PM</strong><br><strong>5:00 PM – 10:00 PM</strong><p style="color:var(--muted)">Breakfast, lunch and dinner service available daily.</p><div style="height:1px;background:var(--line);margin:26px 0"></div><span class="pill">Online Booking</span><h2 style="font-family:'Playfair Display',serif;font-size:2.45rem;line-height:1;margin:18px 0 10px;color:var(--navy)">Book a Table</h2><p style="color:var(--muted)">Online bookings are available from 7:00 AM to 2:00 PM and 5:00 PM to 8:30 PM.</p><a class="btn dark" href="#booking">Reserve a table</a></div><div class="quote-box experience-box"><span class="pill">Experience Marko's</span><h2 style="font-family:'Playfair Display',serif;font-size:3rem;line-height:1;margin:18px 0;color:var(--navy)">Flavours, atmosphere and moments to share</h2><div class="showcase-slider" aria-label="Marko's restaurant photo slideshow"><img src="images/Boat-Noodle-Soup.jpg" alt="Boat noodle soup"><img src="images/Marko-Grilled-Chicken.jpg" alt="Marko's grilled chicken"><img src="images/King Pranws Pad Thai.jpg" alt="King Pranws Pad Thai"><img src="images/Marko’s X.O. Fried Rice.jpg" alt="Marko’s X.O. Fried Rice"></div></div></div></section>
+    <section id="menu"><div class="wrap"><div class="section-head"><div><span class="pill">Favourite Menu</span><h2>Dish of The Day Menu</h2></div><p></p></div><div class="menu-grid">
+      <article class="dish"><div class="dish-img"><img src="images/Boat-Noodle-Soup.jpg" alt="Boat Noodle Soup"></div><div class="dish-body"><h3>Boat Noodle Soup</h3><p>Thai traditional noodle soup with a choice of noodles in dark broth with meat ball, pork liver, Chinese broccoli, beansprout, coriander and fried garlic.</p></div></article>
+      <article class="dish"><div class="dish-img"><img src="images/Marko-Grilled-Chicken.jpg" alt="Marko’s Grilled Chicken"></div><div class="dish-body"><h3>Marko’s Grilled Chicken</h3><p>Marko’s recipe marinated free range chicken with secret homemade sauce and Thai herbs, served with homemade sweet chilli sauce.</p></div></article>
+      <article class="dish"><div class="dish-img"><img src="images/King Pranws Pad Thai.jpg" alt="King Pranws Pad Thai"></div><div class="dish-body"><h3>King Pranws Pad Thai</h3><p>A classic Thai favourite with noodles, prawns, lime, chilli, bean sprouts and crushed peanuts.</p></div></article>
+    </div><div class="hero-actions" style="justify-content:center;margin-top:34px"><a class="btn ghost" href="Breakfast-menu.pdf" target="_blank">View our breakfast menu</a><a class="btn ghost" href="Lunch-Special.pdf" target="_blank">View our lunch menu</a><a class="btn ghost" href="Full Menu 2026.pdf" target="_blank">View our dinner menu</a></div></div></section>
+    <section class="quote"><div class="wrap"><h2>“Inspired by the heart of <span class="gold">Thai authentic food</span>. Built on the principle that food tastes better when shared.”</h2></div></section>
+    <section id="gallery"><div class="wrap"><div class="section-head"><div><span class="pill">Food Gallery</span><h2>Fresh, colourful and made to share</h2></div><p></p></div><div class="gallery">
+      <div class="gallery-item" data-name="Pla Sam Rod"><img src="images/Pla Sam Rod.jpg" alt="Pla Sam Rod"></div>
+      <div class="gallery-item" data-name="Boat Noodle Soup"><img src="images/Boat-Noodle-Soup.jpg" alt="Boat noodle soup"></div>
+      <div class="gallery-item" data-name="King Pranws Pad Thai"><img src="images/King Pranws Pad Thai.jpg" alt="King Pranws Pad Thai"></div>
+      <div class="gallery-item" data-name="Green Curry"><img src="images/Green Curry.jpg" alt="Green Curry"></div>
+      <div class="gallery-item" data-name="Marko’s X.O. Fried Rice"><img src="images/Marko’s X.O. Fried Rice.jpg" alt="Marko’s X.O. Fried Rice"></div>
+      <div class="gallery-item" data-name="Tom Yum King Pranws"><img src="images/tom yum kingpranws6.jpg" alt="Tom Yum King Pranws"></div>
+      <div class="gallery-item" data-name="Green Mango Salad with Deep Fried Barramundi Fish Fillet"><img src="images/Green Mango Salad with Deep Fried Barramundi Fish Fillet.jpg" alt="Green Mango Salad with Deep Fried Barramundi Fish Fillet"></div>
+      <div class="gallery-item" data-name="Cashew Nut Sauce"><img src="images/Cashew Nut Sauce.jpg" alt="Cashew Nut Sauce"></div>
+    </div><div class="gallery-more"><a class="btn ghost" href="Full Menu 2026.pdf" target="_blank">More Photos</a></div></div></section>
+    <section id="function-room" class="function-room-section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="pill">Function Room</span>
+            <h2>Private events, parties and group bookings</h2>
+          </div>
+          <p>Marko’s Restaurant offers a flexible function space for celebrations, meetings and private dining with Thai catering options.</p>
+        </div>
+
+        <div class="function-room-layout">
+          <div class="function-room-main">
+            <img src="images/function-room/gu-20229.jpg" alt="Marko's Restaurant function room set for dining">
+          </div>
+
+          <div class="function-room-copy">
+            <span class="pill">Host Your Event</span>
+            <h2>Function room available</h2>
+            <p>Planning a birthday, company meeting, private dinner or special celebration? Our function room can be arranged for seated dining, group meals, meetings and private events.</p>
+            <p>Speak with our team about your guest numbers, preferred date and food requirements so we can help prepare the right setup for your event.</p>
+
+            <ul class="function-list">
+              <li>Birthday Parties</li>
+              <li>Corporate Meetings</li>
+              <li>Private Dining</li>
+              <li>Family Celebrations</li>
+              <li>Group Bookings</li>
+              <li>Tailored Catering</li>
+            </ul>
+
+            <div class="hero-actions" style="margin-top:28px">
+  <a class="btn primary" href="#booking">
+    Book Function Room
+  </a>
+
+  <a href="mailto:marko@australian.co.th?subject=Function Room Enquiry"
+     style="align-self:center;font-weight:700;text-decoration:underline;color:var(--blue);">
+    Enquire about your event
+  </a>
+</div>
+          </div>
+        </div>
+
+        <div class="function-gallery" aria-label="Function room gallery">
+          <img src="images/function-room/gu-20228.jpg" alt="Long table setup at Marko's function room">
+          <img src="images/function-room/gu-20232.jpg" alt="Restaurant dining area for events">
+          <img src="images/function-room/gu-20390.jpg" alt="Guests dining at Marko's Restaurant">
+          <img src="images/function-room/gu-20210.jpg" alt="Function room event space">
+          <img src="images/function-room/gu-20489.jpg" alt="Private dining setup">
+          <img src="images/function-room/gu-20404.jpg" alt="Customer Birthday Party">
+          <img src="images/function-room/gu-20245.jpg" alt="Dining room and function area">
+          <img src="images/function-room/gu-20244.jpg" alt="Marko's function room seating">
+        </div>
+      </div>
+    </section>
+
+    <section id="booking" class="booking-section"><div class="wrap booking-single"><div class="booking-intro"><div><span class="pill">Online Booking</span><h2>Book a Table</h2></div><p>Choose your preferred date, time and number of guests. The team will use your details to manage bookings more clearly during busy service.</p></div><div class="form-box"><form class="fake-form" id="bookingForm"><div class="form-grid"><div><label>Name</label><input id="name" name="name" required placeholder="Your name"></div><div><label>Phone</label><input id="phone" name="phone" required placeholder="Your phone number"></div><div><label>Email</label><input id="email" name="email" type="email" placeholder="Your email"></div><div><label>Number of guests</label><input id="guests" name="guests" type="number" min="1" max="20" required placeholder="2"></div><div><label>Date</label><input id="date" name="date" type="date" required></div><div><label>Time</label><select id="time" name="time" required><option value="">Select time</option></select></div><div class="full"><label>Special request</label><textarea id="notes" name="notes" rows="4" placeholder="Allergies, pram space, birthday, etc."></textarea></div></div><button class="btn primary" style="width:100%;margin-top:18px" type="submit">Submit Booking Request</button></form></div></div></section>
+    <section id="contact"><div class="wrap contact-grid"><div class="contact-box"><span class="pill">Address</span><h3>Visit Marko’s</h3><p>Ground floor, Sydney Hydepark Plaza Hotel.<br>38 College Street, Darlinghurst, Sydney 2010</p><p><strong>Phone:</strong> <a href="tel:+61293318325">+61 2 9331 8325</a><br><strong>Email: </strong><a href="mailto:marko@australian.co.th">marko@australian.co.th</a></p></div><div class="contact-box">
+  <span class="pill">Staff Area</span>
+
+  <h3>Staff Booking Dashboard</h3>
+
+  <p>
+    View today's bookings, upcoming reservations and booking details in one place.
+  </p>
+
+  <a class="btn primary" href="./staff.html">
+    Staff Login
+  </a>
+</div></div></section>
+  </main>
+  <footer><div class="wrap footer-inner"><div>© 2026 Marko’s Restaurant. All rights reserved.</div><div><a href="#top">Back to top ↑</a></div></div></footer><div class="mobile-book"><a class="btn primary" href="#booking">Book a Table</a></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyBmo4c1Ju1Fr1O3Sw3S9GCPJ8ISFAH1CyU",
+  authDomain: "marko-booking.firebaseapp.com",
+  databaseURL: "https://marko-booking-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "marko-booking",
+  storageBucket: "marko-booking.firebasestorage.app",
+  messagingSenderId: "164222319604",
+  appId: "1:164222319604:web:2a62f1bfcd951c851657a1"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+</script>
+
+<script>
+(function(){
+  const form = document.getElementById('bookingForm');
+  const dateInput = document.getElementById('date');
+  const timeSelect = document.getElementById('time');
+
+  function getTodayLocal(){
+    const now = new Date();
+    return now.getFullYear() + "-" +
+      String(now.getMonth() + 1).padStart(2, "0") + "-" +
+      String(now.getDate()).padStart(2, "0");
+  }
+
+  const today = getTodayLocal();
+
+  if(dateInput){
+    dateInput.value = today;
+    dateInput.min = today;
+  }
+
+  function addTimes(startHour, startMinute, endHour, endMinute){
+    if(!timeSelect) return;
+    let current = startHour * 60 + startMinute;
+    const end = endHour * 60 + endMinute;
+
+    while(current <= end){
+      const h = Math.floor(current / 60);
+      const m = current % 60;
+      const date = new Date();
+      date.setHours(h, m, 0, 0);
+
+      const option = document.createElement('option');
+      option.value = date.toLocaleTimeString('en-AU', {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+      });
+      option.textContent = option.value;
+
+      timeSelect.appendChild(option);
+      current += 15;
+    }
+  }
+
+  addTimes(7, 0, 14, 0);
+  addTimes(17, 0, 20, 00);
+
+  if(!form) return;
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+
+    const booking = {
+      name: document.getElementById('name').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      guests: Number(document.getElementById('guests').value || 0),
+      date: document.getElementById('date').value,
+      time: document.getElementById('time').value,
+      notes: document.getElementById('notes').value.trim(),
+      status: 'pending',
+      createdAt: new Date().toISOString()
+    };
+
+    try{
+      await db.ref('bookings').push(booking);
+      alert('Thank you. Your booking request has been submitted.');
+      form.reset();
+      dateInput.value = today;
+    }catch(error){
+      console.error('Firebase booking submit error:', error);
+      alert('Could not submit booking. Please try again or call the restaurant.');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

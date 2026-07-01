@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Staff Dashboard | Marko's Restaurant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+    :root{
+      --blue:#063f8f;
+      --blue2:#0b63ce;
+      --navy:#071b3a;
+      --black:#111317;
+      --gold:#c9a24d;
+      --white:#ffffff;
+      --light:#f5f8fc;
+      --soft-blue:#eaf2ff;
+      --muted:#5d6675;
+      --line:#dde5f0;
+      --card:#ffffff;
+      --shadow:0 18px 48px rgba(7,27,58,.12);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--black);background:var(--white);line-height:1.65}
+    a{color:inherit;text-decoration:none} img{max-width:100%;display:block}.wrap{width:min(1180px,92vw);margin:auto}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;border-radius:4px;padding:13px 22px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:.88rem;transition:.2s ease;border:1px solid transparent;cursor:pointer}
+    .btn.primary{background:var(--blue);color:white;box-shadow:0 12px 28px rgba(6,63,143,.22)}.btn.primary:hover{background:var(--blue2);transform:translateY(-1px)}
+    .btn.dark{background:var(--black);color:white}.btn.ghost{background:white;color:var(--blue);border-color:var(--blue)}.btn.ghost:hover{background:var(--soft-blue)}
+    .pill{display:inline-flex;border-left:4px solid var(--gold);background:var(--soft-blue);padding:7px 12px;color:var(--blue);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}
+    .site-header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;min-height:78px}.brand{display:flex;align-items:center;gap:12px;font-weight:900}.logo-mark{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:white;font-family:'Playfair Display',serif;font-size:25px;border:3px solid var(--gold)}.brand span:last-child{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--navy)}
+    .nav-links{display:flex;align-items:center;gap:24px;font-weight:800;color:var(--black);font-size:.92rem}.nav-links a:hover{color:var(--blue)}
+    .hero{background:linear-gradient(180deg,#fff 0%,#f7faff 100%);position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+    .hero:before{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;background:radial-gradient(circle,var(--soft-blue),transparent 70%)}
+    .hero-grid{position:relative;display:grid;grid-template-columns:.95fr 1.05fr;gap:58px;align-items:center;min-height:690px;padding:70px 0}.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,7.5vw,6.4rem);line-height:.96;margin:18px 0;color:var(--navy);letter-spacing:-.04em}.hero h1 em{display:block;color:var(--blue);font-style:normal}.hero p{max-width:610px;color:var(--muted);font-size:1.08rem}.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}.hero-photo{border-radius:10px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:white}.hero-photo img{width:100%;height:560px;object-fit:cover}.hero-caption{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:18px 20px;background:#fff}.hero-caption strong{color:var(--navy)}.hero-caption span{color:var(--gold);font-weight:800}
+    section{padding:84px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:26px;margin-bottom:34px}.section-head h2{font-family:'Playfair Display',serif;font-size:clamp(2.1rem,4.8vw,4rem);line-height:1;margin:12px 0 0;color:var(--navy)}.section-head p{max-width:560px;color:var(--muted);margin:0}
+    .booking-strip{margin-top:-48px;position:relative;z-index:5}.booking-card{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;background:var(--card);border:1px solid var(--line);border-top:5px solid var(--blue);border-radius:10px;padding:28px;box-shadow:var(--shadow)}.booking-card h2{font-family:'Playfair Display',serif;margin:0 0 4px;font-size:2rem;color:var(--navy)}.booking-card p{margin:0;color:var(--muted)}
+    .hours-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:28px}.hours-box,.quote-box,.contact-box,.form-box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:34px;box-shadow:0 12px 34px rgba(7,27,58,.07)}.hours-box strong{font-size:1.28rem;color:var(--navy)}
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.dish{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 12px 35px rgba(7,27,58,.08)}.dish-img{height:250px;overflow:hidden;background:var(--light)}.dish-img img{width:100%;height:100%;object-fit:cover;transition:.3s ease}.dish:hover .dish-img img{transform:scale(1.04)}.dish-body{padding:24px}.dish h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin:0 0 8px;color:var(--navy)}.dish p{color:var(--muted);margin:0}
+    .quote{background:linear-gradient(120deg,var(--navy),var(--blue));color:white;text-align:center}.quote h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,4rem);line-height:1.1;margin:0 auto;max-width:900px}.quote .gold{color:#f3d58b}
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.gallery-item{aspect-ratio:1/1;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--light);position:relative}.gallery-item img{width:100%;height:100%;object-fit:cover;transition:.25s ease}.gallery-item:hover img{transform:scale(1.05)}.gallery-item:before{content:attr(data-name);position:absolute;left:10px;right:10px;bottom:10px;z-index:2;background:rgba(7,27,58,.82);color:white;border-left:4px solid var(--gold);padding:7px 10px;font-size:.78rem;font-weight:800}
+    .booking-section{background:var(--light);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.booking-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:28px;align-items:start}.fake-form{background:white;border:1px solid var(--line);border-radius:10px;padding:24px}.fake-form label{display:block;margin:14px 0 6px;font-weight:800;color:var(--navy)}.fake-form input,.fake-form select,.fake-form textarea{width:100%;padding:13px;border:1px solid #cfd8e6;border-radius:6px;font:inherit;background:white}.fake-note{padding:14px 16px;border-radius:8px;background:var(--soft-blue);border:1px solid #cbdcf5;color:#28415f;font-size:.94rem}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}.contact-box h3{font-family:'Playfair Display',serif;font-size:2rem;margin:0 0 10px;color:var(--navy)}footer{background:var(--black);color:#d8dee8;padding:32px 0}.footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.mobile-book{display:none;position:fixed;left:14px;right:14px;bottom:14px;z-index:60}.mobile-book .btn{width:100%;box-shadow:0 18px 40px rgba(0,0,0,.28)}
+
+    .experience-box{min-height:100%;display:flex;flex-direction:column}
+    .showcase-slider{position:relative;margin-top:24px;border-radius:10px;overflow:hidden;border:1px solid var(--line);height:310px;background:var(--light);box-shadow:0 12px 28px rgba(7,27,58,.08)}
+    .showcase-slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:markoFade 20s infinite}
+    .showcase-slider img:nth-child(1){animation-delay:0s}
+    .showcase-slider img:nth-child(2){animation-delay:5s}
+    .showcase-slider img:nth-child(3){animation-delay:10s}
+    .showcase-slider img:nth-child(4){animation-delay:15s}
+    @keyframes markoFade{0%{opacity:0}8%{opacity:1}25%{opacity:1}33%{opacity:0}100%{opacity:0}}
+    .booking-single{max-width:980px;margin:0 auto}
+    .booking-intro{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:26px}
+    .booking-intro h2{font-family:'Playfair Display',serif;font-size:clamp(2.3rem,5vw,4rem);line-height:1;margin:12px 0 0;color:var(--navy)}
+    .booking-intro p{max-width:560px;color:var(--muted);margin:0}
+    .fake-form .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .fake-form .full{grid-column:1/-1}
+    .staff-login{min-height:100vh;background:var(--light);display:grid;place-items:center;padding:30px}
+    .login-card{width:min(520px,92vw);background:white;border:1px solid var(--line);border-radius:10px;padding:34px;box-shadow:var(--shadow)}
+    .login-card h1{font-family:'Playfair Display',serif;color:var(--navy);font-size:2.6rem;margin:10px 0}
+    .login-card input{width:100%;padding:14px;border:1px solid #cfd8e6;border-radius:6px;font:inherit;margin:8px 0 16px}
+    .dashboard{padding:42px 0;background:var(--light);min-height:100vh}
+    .dash-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:24px}
+    .dash-head h1{font-family:'Playfair Display',serif;color:var(--navy);font-size:3rem;margin:0}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:24px}
+    .stat{background:white;border:1px solid var(--line);border-radius:10px;padding:20px;box-shadow:0 10px 26px rgba(7,27,58,.06)}
+    .stat strong{display:block;font-size:2rem;color:var(--navy)}
+    .booking-table{width:100%;border-collapse:collapse;background:white;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 10px 26px rgba(7,27,58,.06)}
+    .booking-table th,.booking-table td{padding:14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+    .booking-table th{background:var(--soft-blue);color:var(--blue);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em}
+    .empty-state{background:white;border:1px solid var(--line);border-radius:10px;padding:30px;color:var(--muted)}
+.status-select{
+  padding:8px 12px;
+  border:none;
+  border-radius:6px;
+  font-weight:700;
+  color:#fff;
+  cursor:pointer;
+  min-width:110px;
+}
+
+.status-pending{
+  background:#f59e0b;
+}
+
+.status-seen{
+  background:#3b82f6;
+}
+
+.status-confirmed{
+  background:#16a34a;
+}
+
+.status-cancelled{
+  background:#dc2626;
+}
+    @media(max-width:900px){.nav-links a:not(.book){display:none}.hero-grid,.hours-grid,.booking-layout,.contact-grid{grid-template-columns:1fr}.hero-grid{min-height:auto;padding:48px 0 92px}.hero-photo img{height:420px}.booking-card{grid-template-columns:1fr}.menu-grid{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}.mobile-book{display:block}body{padding-bottom:78px}.section-head{display:block}}
+    @media(max-width:700px){.fake-form .form-grid{grid-template-columns:1fr}.booking-intro{display:block}.showcase-slider{height:240px}}
+    @media(max-width:520px){.hero h1{font-size:3.2rem}.brand span:last-child{font-size:1.05rem}.booking-card,.hours-box,.quote-box,.contact-box,.form-box{padding:22px}.gallery{gap:10px}.nav{min-height:66px}.hero-photo img{height:320px}}
+  </style>
+</head>
+<body>
+<div id="loginView" class="staff-login">
+  <div class="login-card">
+    <span class="pill">Staff Login</span>
+    <h1>Marko's Dashboard</h1>
+    <p style="color:var(--muted)">Enter the staff password to view booking requests.</p>
+    <input id="password" type="password" placeholder="Staff password">
+    <button class="btn primary" style="width:100%" onclick="login()">Login</button>
+    <p id="loginMsg" style="color:#b00020;font-weight:700"></p>
+  </div>
+</div>
+<div id="dashView" class="dashboard" style="display:none">
+  <div class="wrap">
+    <div class="dash-head">
+      <div><span class="pill">Staff Dashboard</span><h1>Upcoming Bookings</h1></div>
+      <div><button class="btn ghost" onclick="logout()">Logout</button></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><span>Today</span><strong id="todayCount">0</strong></div>
+      <div class="stat"><span>Total guests today</span><strong id="guestCount">0</strong></div>
+      <div class="stat"><span>All upcoming</span><strong id="upcomingCount">0</strong></div>
+    </div>
+    <table class="booking-table">
+      <thead><tr><th>Status</th><th>Date / Time</th><th>Name</th><th>Guests</th><th>Phone</th><th>Email</th><th>Request</th></tr></thead>
+      <tbody id="bookingRows"></tbody>
+    </table>
+    <div id="emptyState" class="empty-state" style="display:none;margin-top:18px">No upcoming bookings found.</div>
+  </div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyBmo4c1Ju1Fr1O3Sw3S9GCPJ8ISFAH1CyU",
+  authDomain: "marko-booking.firebaseapp.com",
+  databaseURL: "https://marko-booking-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "marko-booking",
+  storageBucket: "marko-booking.firebasestorage.app",
+  messagingSenderId: "164222319604",
+  appId: "1:164222319604:web:2a62f1bfcd951c851657a1"
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+const db = firebase.database();
+</script>
+<script>
+const STAFF_PASSWORD = 'marko2026';
+function login(){
+  const value = document.getElementById('password').value;
+  if(value === STAFF_PASSWORD){
+    sessionStorage.setItem('markoStaffLogin','yes');
+    showDashboard();
+  } else {
+    document.getElementById('loginMsg').textContent = 'Incorrect password.';
+  }
+}
+function logout(){
+  sessionStorage.removeItem('markoStaffLogin');
+  location.reload();
+}
+function showDashboard(){
+  document.getElementById('loginView').style.display='none';
+  document.getElementById('dashView').style.display='block';
+  renderBookings();
+}
+function renderBookings(){
+  const rows = document.getElementById('bookingRows');
+  const empty = document.getElementById('emptyState');
+  function getTodayLocal(){
+  const now = new Date();
+  return now.getFullYear() + "-" +
+    String(now.getMonth() + 1).padStart(2, "0") + "-" +
+    String(now.getDate()).padStart(2, "0");
+}
+
+const today = getTodayLocal();
+
+  function escapeHtml(value){
+    return String(value || '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  }
+
+function parseBookingDateTime(b){
+  const datePart = b.date || '';
+  const timePart = (b.time || '').toUpperCase().replace(/\./g, '');
+  return new Date(`${datePart} ${timePart}`);
+}
+
+function draw(bookings){
+  const now = new Date();
+
+  const todayBookings = bookings
+    .filter(b => b.date === today);
+
+  const todayDone = todayBookings
+    .filter(b => parseBookingDateTime(b) < now)
+    .sort((a,b)=> parseBookingDateTime(a) - parseBookingDateTime(b));
+
+  const upcoming = bookings
+    .filter(b => parseBookingDateTime(b) >= now)
+    .sort((a,b)=> parseBookingDateTime(a) - parseBookingDateTime(b));
+
+  document.getElementById('todayCount').textContent = todayBookings.length;
+  document.getElementById('guestCount').textContent = todayBookings.reduce((sum,b)=>sum + Number(b.guests || 0),0);
+  document.getElementById('upcomingCount').textContent = upcoming.length;
+
+const renderRow = b => `<tr>
+  <td>
+    <select
+  class="status-select status-${b.status || 'pending'}"
+  onchange="updateStatus('${b.id}', this)">
+      <option value="pending" ${(b.status || 'pending') === 'pending' ? 'selected' : ''}>Pending</option>
+      <option value="seen" ${b.status === 'seen' ? 'selected' : ''}>Seen</option>
+      <option value="confirmed" ${b.status === 'confirmed' ? 'selected' : ''}>Confirm</option>
+      <option value="cancelled" ${b.status === 'cancelled' ? 'selected' : ''}>Cancel</option>
+    </select>
+  </td>
+  <td>${escapeHtml(b.date || '')}<br>${escapeHtml(b.time || '')}</td>
+  <td><strong>${escapeHtml(b.name || '')}</strong></td>
+  <td>${escapeHtml(b.guests || '')}</td>
+  <td>${escapeHtml(b.phone || '')}</td>
+  <td>${escapeHtml(b.email || '')}</td>
+  <td>${escapeHtml(b.notes || '')}</td>
+</tr>`;
+
+  rows.innerHTML = upcoming.map(renderRow).join('');
+
+  if(todayDone.length){
+    rows.innerHTML += `<tr><th colspan="7">Today Done</th></tr>` + todayDone.map(renderRow).join('');
+  }
+
+  empty.style.display = upcoming.length ? 'none' : 'block';
+  empty.textContent = 'No upcoming bookings found.';
+}
+window.updateStatus = function(id, select){
+
+  const status = select.value;
+
+  select.className = "status-select status-" + status;
+
+  db.ref('bookings/' + id).update({
+    status: status,
+    statusUpdatedAt: new Date().toISOString()
+  });
+
+};
+  db.ref('bookings').on('value', snapshot => {
+    const value = snapshot.val() || {};
+    const bookings = Object.entries(value).map(([id, booking]) => ({ id, ...booking }));
+    draw(bookings);
+  }, error => {
+    console.error('Firebase dashboard read error:', error);
+    empty.style.display = 'block';
+    empty.textContent = 'Could not load bookings. Please check Firebase rules and connection.';
+  });
+}
+if(sessionStorage.getItem('markoStaffLogin') === 'yes') showDashboard();
+document.getElementById('password').addEventListener('keydown', e => { if(e.key === 'Enter') login(); });
+</script>
+</body>
+</html>
