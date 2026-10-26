@@ -1,7 +1,7 @@
 MARKO'S COMBINED WEBSITE
 
 Homepage: index.html - choose Restaurant or Zaab Hot Pot.
-Restaurant: restaurant/index.html - retains the existing restaurant and booking form.
+Restaurant: restaurant/index.html - retains the latest restaurant page with email reservations.
 Hot pot: hot-pot/index.html - Coming soon, with the full preview open to browse.
 Both dining pages have a switcher at the top.
 
