@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="title desc">
+<title id="title">Marko Hot Pot</title>
+<desc id="desc">A circular red badge with curved white Marko Hot Pot lettering, a deep-blue centre, a large white M and pale-blue side dots.</desc>
+<circle cx="200" cy="200" r="192" fill="#ec1d32" stroke="#102572" stroke-width="8"/>
+<circle cx="200" cy="200" r="181" fill="none" stroke="#7ec7ff" stroke-width="2"/>
+<circle cx="200" cy="200" r="116" fill="#102572" stroke="#fff" stroke-width="2"/>
+<g fill="#fff" font-family="Arial Black,Arial,sans-serif" font-weight="900" text-anchor="middle">
+<text transform="translate(127.63 78.99) rotate(-30.88)" font-size="44">M</text>
+<text transform="translate(164.87 63.45) rotate(-14.43)" font-size="44">A</text>
+<text transform="translate(201.00 59.00) rotate(0.41)" font-size="44">R</text>
+<text transform="translate(238.50 64.36) rotate(15.85)" font-size="44">K</text>
+<text transform="translate(274.51 80.29) rotate(31.90)" font-size="44">O</text>
+<text transform="translate(124.86 334.42) rotate(29.21)" font-size="35">H</text>
+<text transform="translate(153.25 346.73) rotate(17.67)" font-size="35">O</text>
+<text transform="translate(181.54 352.89) rotate(6.88)" font-size="35">T</text>
+<text transform="translate(222.42 352.36) rotate(-8.37)" font-size="35">P</text>
+<text transform="translate(250.55 345.47) rotate(-19.16)" font-size="35">O</text>
+<text transform="translate(276.88 333.43) rotate(-29.95)" font-size="35">T</text>
+</g>
+<path d="M120 276V124h33l47 71 47-71h33v152h-37v-90l-43 64-43-64v90z" fill="#fff"/>
+<circle cx="52.64" cy="172" r="7" fill="#7ec7ff"/>
+<circle cx="50.00" cy="200" r="7" fill="#7ec7ff"/>
+<circle cx="52.64" cy="228" r="7" fill="#7ec7ff"/>
+<circle cx="347.36" cy="172" r="7" fill="#7ec7ff"/>
+<circle cx="350.00" cy="200" r="7" fill="#7ec7ff"/>
+<circle cx="347.36" cy="228" r="7" fill="#7ec7ff"/>
+</svg>

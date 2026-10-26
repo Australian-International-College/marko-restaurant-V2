@@ -1,0 +1,11 @@
+MARKO'S COMBINED WEBSITE
+
+Homepage: index.html - choose Restaurant or Zaab Hot Pot.
+Restaurant: restaurant/index.html - retains the existing restaurant and booking form.
+Hot pot: hot-pot/index.html - Coming soon, with the full preview open to browse.
+Both dining pages have a switcher at the top.
+
+GitHub Pages: publish this repository's root folder, with index.html at the root.
+The existing CNAME, Git history, staff dashboard and Firebase files are preserved.
+Include restaurant/, hot-pot/ and shared/ when committing these changes.
+The website has not been pushed or published by this preparation step.
