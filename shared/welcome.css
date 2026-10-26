@@ -9,3 +9,11 @@
 /* Coming soon status */
 .hotpot-choice .coming-soon-badge{display:inline-block;background:#102572;color:#fff;padding:7px 13px;border-radius:999px;font-size:11px;letter-spacing:.03em;margin-bottom:10px;text-transform:none}
 @media(max-width:580px){.hotpot-choice .coming-soon-badge{font-size:9px;padding:5px 10px;margin-bottom:8px}}
+
+/* Three Marko's experiences */
+.choice{display:flex;flex-direction:column}.choice-content{flex:1}.choice-image{flex-shrink:0}
+.choices{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.choice-content{padding-left:20px;padding-right:20px;display:flex;flex-direction:column;min-height:365px}.choice-copy{flex:1}.choice-cta{width:100%}.choice h2,.restaurant-choice h2{font-size:25px;line-height:1.1;min-height:55px;display:flex;align-items:center;justify-content:center}.dessert-choice{background:#e8e0ff;color:#283b98;border-color:#d3c5f2}.dessert-logo{width:138px;height:138px}.dessert-choice .dessert-soon{display:inline-block;background:#5e46a7;color:#fff;font-size:11px;letter-spacing:.03em;padding:7px 13px;border-radius:999px;margin-bottom:10px}.dessert-choice .choice-copy>p:last-child{color:#66578b}.dessert-choice .choice-cta{background:#2e43ad}.dessert-image img{object-position:50% 60%}.top-edge{background:linear-gradient(90deg,#1647a3 0 33.33%,#e91e35 33.33% 66.66%,#a591e2 66.66%)}
+@media(min-width:1450px){.choice-content{min-height:390px}}
+@media(min-width:581px) and (max-width:900px){.choices{gap:12px}.choice-content{padding-left:13px;padding-right:13px}.choice h2,.restaurant-choice h2{font-size:21px}.choice-cta{font-size:10px;padding:13px 11px}.choice-copy>p:last-child{font-size:10px}}
+@media(max-width:580px){.choices{grid-template-columns:1fr;gap:16px}.choice-content{display:grid;min-height:0;padding:18px;grid-template-columns:82px 1fr}.choice-copy{flex:none}.choice h2,.restaurant-choice h2{font-size:23px;min-height:0;display:block;text-align:left}.choice h2 br{display:none}.choice h2 br:after{content:' '}.dessert-logo{width:88px;height:88px;max-width:88px}.dessert-choice .dessert-soon{font-size:9px;padding:5px 10px;margin-bottom:8px}}
+@media(max-width:360px){.choice-content{padding:15px;grid-template-columns:68px 1fr}.dessert-logo{width:74px;height:74px;max-width:74px}.choice h2,.restaurant-choice h2{font-size:21px}}

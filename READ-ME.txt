@@ -1,11 +1,13 @@
 MARKO'S COMBINED WEBSITE
 
-Homepage: index.html - choose Restaurant or Zaab Hot Pot.
+Homepage: index.html - choose Restaurant, Zaab Hot Pot or Arai Waan Waan.
 Restaurant: restaurant/index.html - retains the latest restaurant page with email reservations.
 Hot pot: hot-pot/index.html - Coming soon, with the full preview open to browse.
-Both dining pages have a switcher at the top.
+All three experience pages have a switcher at the top.
 
 GitHub Pages: publish this repository's root folder, with index.html at the root.
 The existing CNAME, Git history, staff dashboard and Firebase files are preserved.
-Include restaurant/, hot-pot/ and shared/ when committing these changes.
+Include restaurant/, hot-pot/, arai-waan-waan/ and shared/ when committing these changes.
 The website has not been pushed or published by this preparation step.
+
+Arai Waan Waan: arai-waan-waan/index.html - coming soon, Thai shaved ice, bingsu and kakigori. Dessert photos are generated concept imagery; final menu is not announced.
