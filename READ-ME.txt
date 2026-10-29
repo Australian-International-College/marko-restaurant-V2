@@ -11,3 +11,14 @@ Include restaurant/, hot-pot/, arai-waan-waan/ and shared/ when committing these
 The website has not been pushed or published by this preparation step.
 
 Arai Waan Waan: arai-waan-waan/index.html - coming soon, Thai shaved ice, bingsu and kakigori. Dessert photos are generated concept imagery; final menu is not announced.
+
+Catering: restaurant/catering/index.html
+Group Tours: restaurant/group-tours/index.html
+Both pages are linked from Restaurant. Shared styles/scripts: restaurant/services.css and restaurant/services.js. Optimised photos: restaurant/service-images/. Enquiry forms prepare an email in the visitor's email app; they do not submit a reservation automatically. Pricing, availability and arrangements are confirmed by the team.
+
+29 October 2026 - Group Tours and Catering updates
+Both Sydney attraction and walking-loop maps are on the Group Tours page. Event slideshows use optimised copies of supplied event photography on both service pages. Group Tours advertises sharing packages FROM A$45 per person including starter, sharing dishes, rice, fruit platter and drink. The three sharing menus use the dishes supplied by the restaurant owner: Thai Classics, Curry and Comfort, and Grill and Gather. The enquiry form includes function purpose, per-person budget range, and only Help me choose / Discuss a menu as preferred-menu options. All completed fields are included in the prepared email enquiry. No email is automatically sent.
+
+Thai Classics update: uses the supplied gu-20253.jpg photograph via an optimised website copy. Dish names updated to Thai Fish Cake and Pad Kana Beef. Group Tours now lists gluten free, vegetarian, nut free and seafood free options and provides optional dietary checkboxes in its enquiry form. Selected dietary options are included in the prepared email.
+
+Expanded event galleries: Catering and Group Tours each show 18 photographs, including dining-room angles, private table setups, theatre seating, meetings, birthdays, formal celebrations, buffet service and live music. Scrollable photo thumbnails, a photo counter, previous/next and pause/play controls let visitors browse. Optimised copies preserve the full main photograph; original supplied files are unchanged.
