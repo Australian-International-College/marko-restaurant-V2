@@ -1,4 +1,31 @@
 (() => {
+  const navigation = document.getElementById('restaurant-navigation');
+  const menuToggle = document.querySelector('.mk-nav-toggle');
+  if (navigation && menuToggle) {
+    const closeMenu = () => {
+      navigation.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    };
+    menuToggle.addEventListener('click', () => {
+      const open = menuToggle.getAttribute('aria-expanded') !== 'true';
+      navigation.classList.toggle('is-open', open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+    });
+    navigation.addEventListener('click', event => {
+      if (event.target.closest('a')) closeMenu();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+        menuToggle.focus();
+      }
+    });
+    document.addEventListener('click', event => {
+      if (!navigation.contains(event.target) && !menuToggle.contains(event.target)) closeMenu();
+    });
+    window.matchMedia('(max-width: 900px)').addEventListener('change', closeMenu);
+  }
+
   document.querySelectorAll('[data-slideshow]').forEach(carousel => {
     const slides = [...carousel.querySelectorAll('.event-slide')];
     const controls = carousel.querySelector('.event-controls');
