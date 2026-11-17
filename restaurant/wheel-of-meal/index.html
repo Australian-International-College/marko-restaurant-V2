@@ -1,34 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#102446">
-  <title>Wheel of Meal | Marko’s Restaurant</title>
-  <meta name="description" content="Can’t decide what to eat? Spin Marko’s Wheel of Meal for a Thai dish suggestion.">
-  <link rel="stylesheet" href="wheel.css?v=all-mains-1">
-  <script src="wheel.js?v=all-mains-1" defer></script>
-</head>
-<body>
-  <header class="header"><a class="brand" href="../index.html" aria-label="Marko’s Restaurant home"><img src="../../shared/restaurant-logo.jpg" alt="Marko’s Restaurant"></a><a class="back" href="../index.html#menu">← Back to restaurant</a></header>
-  <main>
-    <div class="intro"><span class="eyebrow">A LITTLE SPIN. A LOT OF FLAVOUR.</span><h1>Wheel of <em>Meal.</em></h1><p>Can’t decide what to eat?<br>Let the wheel find your next Thai favourite.</p></div>
-    <div class="experience">
-      <section class="wheel-panel" aria-label="Meal randomizer">
-        <label for="category">What are you in the mood for?</label>
-        <select id="category"><option value="all">All main dishes · surprise me</option><option value="stirfry">Stir-fries</option><option value="rice">Fried rice</option><option value="noodles">Noodles &amp; noodle soups</option><option value="curry">Curries</option><option value="soup">Soups</option><option value="salad">Thai salads</option><option value="grilled">Grilled chicken</option><option value="seafood">Seafood favourites</option><option value="specialties">Thai specialties</option></select>
-        <div class="wheel-stage"><span class="pointer" aria-hidden="true"></span><canvas id="wheel" width="900" height="900" aria-hidden="true"></canvas><div class="hub" aria-hidden="true">M<span>MARKO’S</span></div></div>
-        <button class="spin" id="spin" type="button">Spin my meal <span aria-hidden="true">↻</span></button>
-        <p class="wheel-note" id="wheel-note">52 main dishes. One delicious decision.</p>
-      </section>
-      <section class="result" aria-labelledby="result-heading" aria-busy="false">
-        <div class="photo-wrap"><img id="dish-photo" src="../images/Marko-Grilled-Chicken.jpg" alt="Marko’s Grilled Chicken"><span class="photo-tag" id="photo-tag">WHAT WILL YOU TRY?</span></div>
-        <div class="result-copy"><span class="eyebrow" id="result-kicker">YOUR NEXT FAVOURITE AWAITS</span><div role="status" aria-live="polite" aria-atomic="true" id="announcement"><h2 id="result-heading">A little help<br>choosing lunch?</h2><p id="dish-description">Spin the wheel and we’ll pick from all 52 main dishes on Marko’s menu. Your next favourite might be one spin away.</p></div><div class="result-actions"><a class="menu-link" href="../Full%20Menu%202026.pdf" target="_blank" rel="noopener">Explore the full menu ↗</a><button id="again" type="button" hidden>Try another dish ↻</button></div><p class="fine-print">Choose your protein and any sides with our team. A dish suggestion, ready to discuss before ordering. Ask us about availability, dietary needs and allergies before ordering.</p></div>
-      </section>
-    </div>
-    <section class="options" aria-label="Dishes on the wheel"><h2>All mains on the wheel</h2><div id="dish-list"></div></section>
-    <noscript><p class="noscript">Please enable JavaScript to spin the wheel. You can also <a href="../Full%20Menu%202026.pdf">browse the full menu</a>.</p></noscript>
-  </main>
-  <footer><span>Good food. Good company. Marko’s.</span><a href="../index.html#contact">38 College Street, Darlinghurst ↗</a></footer>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Let the Wheel Decide | Marko’s Restaurant</title><meta name="description" content="Add any choices, spin your own wheel and let it decide. Food, activities, plans or Marko’s menu—make it yours."><link rel="stylesheet" href="wheel.css?v=choices-1"><link rel="stylesheet" href="custom.css?v=1"><script src="menu-data.js?v=1" defer></script><script src="custom.js?v=1" defer></script></head><body>
+
+<header class="header"><a class="brand" href="../index.html"><img src="../../shared/restaurant-logo.jpg" alt="Marko’s Restaurant"></a><a class="back" href="../index.html">← Back to Marko’s</a></header>
+<main><div class="intro"><span class="eyebrow">YOUR CHOICES. A LITTLE HELP DECIDING.</span><h1>Let the wheel <em>decide.</em></h1><p>Food, plans, games, activities—put anything in.<br>Your choices. Your wheel. Leave the decision to a spin.</p></div>
+<div class="mode-switch" role="group" aria-label="Choose wheel"><button type="button" id="custom-mode" aria-pressed="true">Your own choices <span>Start with an empty wheel</span></button><button type="button" id="markos-mode" aria-pressed="false">Marko’s menu <span>All 52 main dishes, ready to spin</span></button></div>
+<div class="experience draft-experience"><section class="wheel-panel" aria-label="Choice wheel"><div class="wheel-stage"><span class="pointer" aria-hidden="true"></span><canvas id="custom-wheel" width="900" height="900" aria-hidden="true"></canvas><div class="empty-message" id="empty-message"><strong>What’s on<br>your mind?</strong><span>Add your choices to get started.</span></div><div class="hub" id="custom-hub" hidden aria-hidden="true">M<span>MARKO’S</span></div></div><button type="button" class="spin" id="custom-spin" disabled>Add at least 2 choices</button><p class="wheel-note" id="custom-note">Your wheel is a blank canvas.</p><div class="pick-card" id="pick-card" hidden role="status" aria-live="polite"><span class="eyebrow">THE WHEEL HAS SPOKEN</span><h2 id="pick-name"></h2><p id="pick-description"></p><img id="pick-photo" hidden alt=""></div></section>
+<section class="builder" aria-labelledby="builder-title"><div id="custom-builder"><span class="eyebrow">MAKE IT YOURS</span><h2 id="builder-title">What are your options?</h2><p class="builder-intro">Add food, things to do, places to go—or anything else. You can mix in dishes from Marko’s too.</p><form id="choice-form"><label for="choice-input">Your choices <span>One per line</span></label><textarea id="choice-input" rows="3" maxlength="4000" placeholder="Coffee catch-up&#10;Movie night&#10;Pad Thai"></textarea><button class="add-button" type="submit">+ Add to my wheel</button></form><div class="divider"><span>OR ADD FROM MARKO’S</span></div><label class="sr-only" for="menu-search">Search Marko’s dishes</label><input type="search" id="menu-search" placeholder="Search Marko’s menu…"><div id="menu-picks" class="menu-picks" aria-label="Add a Marko’s dish"></div><button type="button" class="text-button" id="add-all">+ Add all 52 Marko’s mains</button><div class="chosen-heading"><h3>Your wheel <span id="choice-count">0 choices</span></h3><button type="button" class="text-button" id="clear-choices" disabled>Clear all</button></div><p id="empty-list">No choices yet. Your first idea goes here.</p><ul class="chosen-list" id="chosen-list"></ul><p id="builder-feedback" class="builder-feedback" role="status" aria-live="polite"></p></div>
+<div id="markos-builder" hidden><span class="eyebrow">LEAVE IT TO MARKO’S</span><h2>52 mains.<br>One happy decision.</h2><p class="builder-intro">Spin for a dish from our menu, or bring the whole list into your own wheel and make it yours.</p><img class="markos-preview" src="../images/Marko-Grilled-Chicken.jpg" alt="Marko’s grilled chicken"><button type="button" class="add-button" id="customise-menu">Use this list &amp; customise ↗</button><a class="full-menu" href="../Full%20Menu%202026.pdf" target="_blank" rel="noopener">See the full menu ↗</a></div>
+<p class="builder-footnote">Every choice gets an equal slice. Ask our team about availability and dietary needs before ordering.</p></section></div></main><footer><span>Good food. Good company. Your call.</span><span>Marko’s Restaurant · Darlinghurst</span></footer></body></html>
