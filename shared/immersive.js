@@ -45,7 +45,9 @@
     if(photo.closest('a,button'))return;
     photo.tabIndex=0;
     photo.setAttribute('role','button');
-    photo.setAttribute('aria-label','Enlarge photo: '+photo.alt);
+    const updateLabel = () => photo.setAttribute('aria-label','Enlarge photo: '+photo.alt);
+    updateLabel();
+    new MutationObserver(updateLabel).observe(photo,{attributes:true,attributeFilter:['alt']});
     photo.classList.add('im-enlargeable');
     const openPhoto = () => {
       returnFocus=photo;
