@@ -17,3 +17,19 @@
 @media(min-width:581px) and (max-width:900px){.choices{gap:12px}.choice-content{padding-left:13px;padding-right:13px}.choice h2,.restaurant-choice h2{font-size:21px}.choice-cta{font-size:10px;padding:13px 11px}.choice-copy>p:last-child{font-size:10px}}
 @media(max-width:580px){.choices{grid-template-columns:1fr;gap:16px}.choice-content{display:grid;min-height:0;padding:18px;grid-template-columns:82px 1fr}.choice-copy{flex:none}.choice h2,.restaurant-choice h2{font-size:23px;min-height:0;display:block;text-align:left}.choice h2 br{display:none}.choice h2 br:after{content:' '}.dessert-logo{width:88px;height:88px;max-width:88px}.dessert-choice .dessert-soon{font-size:9px;padding:5px 10px;margin-bottom:8px}}
 @media(max-width:360px){.choice-content{padding:15px;grid-template-columns:68px 1fr}.dessert-logo{width:74px;height:74px;max-width:74px}.choice h2,.restaurant-choice h2{font-size:21px}}
+
+/* Four experiences, including Marko’s 15F Rooftop. */
+.welcome-header,main{max-width:1360px}.welcome-footer{max-width:1276px}
+.choices{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.top-edge{background:linear-gradient(90deg,#1647a3 0 25%,#e91e35 25% 50%,#a591e2 50% 75%,#82bde6 75%)}
+.rooftop-choice{background:linear-gradient(155deg,#d9edff 0%,#edf6ff 62%,#f6eadd 100%);color:#193f65;border-color:#b9d8ed}
+.rooftop-logo{width:100%;max-width:230px;height:132px;object-fit:contain}
+.rooftop-choice .rooftop-soon{display:inline-block;background:#f3dfba;color:#28547b;padding:7px 13px;border-radius:999px;font-size:11px;letter-spacing:.03em;margin-bottom:10px}
+.rooftop-choice h2{font-family:Georgia,serif;font-weight:400;letter-spacing:-.035em}
+.rooftop-choice .choice-copy>p:last-child{color:#496c89}
+.rooftop-choice .choice-cta{background:#326b99;color:#fff}
+.rooftop-image img{object-position:53% 55%}
+@media(min-width:1000px) and (max-width:1199px){.choices{gap:16px}.choice-content{padding-left:15px;padding-right:15px}.choice h2,.restaurant-choice h2{font-size:23px}.choice-copy>p:last-child{font-size:11px}.choice-cta{font-size:10px;padding:13px 12px}.choice-image>span{font-size:7px;left:15px}}
+@media(min-width:581px) and (max-width:999px){.choices{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.choice-content{padding-left:20px;padding-right:20px}.choice h2,.restaurant-choice h2{font-size:25px}.choice-copy>p:last-child{font-size:12px}.choice-cta{font-size:11px}.welcome-footer{margin-left:42px;margin-right:42px}}
+@media(max-width:580px){.choices{grid-template-columns:1fr;gap:16px}.rooftop-logo{width:90px;max-width:90px;height:82px;object-fit:cover;object-position:left center}.rooftop-choice .rooftop-soon{font-size:9px;padding:5px 10px;margin-bottom:8px}.rooftop-choice h2{font-size:23px}.rooftop-choice .choice-copy>p:last-child{font-size:10px}.welcome-footer{margin-left:20px;margin-right:20px}}
+@media(max-width:360px){.rooftop-logo{width:74px;max-width:74px;height:68px}.rooftop-choice h2{font-size:21px}}

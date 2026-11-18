@@ -1,18 +1,26 @@
-# Marko’s 15F Rooftop — drinks and snacks draft
+# Marko’s 15F Rooftop — revised preview
 
-New separate service page: `/15f-rooftop/index.html`.
+Updated 18 November 2026 following owner feedback:
 
-- Coming soon branding, original olive-and-gold SVG logo and 15F monogram.
-- Proposed packages: A$39, A$59 and A$79 per person, including GST.
-- Drinks and light snacks; no full-meal packages.
-- All ten supplied styling images, with an accessible expandable gallery.
-- Individual drinks and snack prices, guest estimate and email enquiry preparation.
-- Restaurant navigation and service teaser link to this page.
+- Removed the individual drinks and snack price-list section.
+- Packages now start at A$69 per person: Skyline Social A$69, Golden Hour A$89 and 15F Celebration A$109.
+- Updated enquiry package choices, guest estimate and restaurant service teaser to match.
+- Moved all ten pictures into a slideshow after the enquiry section, immediately before the footer.
+- Includes previous/next, pause/play, numbered thumbnails and reduced-motion support.
+- Keeps Coming soon, original logo and drinks-and-snacks concept.
 
-The first rooftop dining draft remains in `/restaurant/rooftop/index.html`.
+## Apply to the GitHub website folder
 
-Deploy the full website repository so the restaurant's shared enquiry script and family pages stay available. This folder has no build step. Prices, opening details and event arrangements are proposals for owner review.
+Extract the ZIP into the website repository root, preserving the folder names, and replace matching files. It contains `15f-rooftop/` and the updated `restaurant/index.html`. Existing restaurant shared scripts and other website files are retained by the extraction.
 
-Images are supplied styling concepts, not documentary photographs of installed furniture or past events. `image-sources.json` records the original filenames. Source PNGs were left unchanged.
+This session can write only in its project workspace. The Desktop repository was read but not modified. No commit, push or publication was performed.
 
-No publication, Git commit or push was performed for this draft.
+
+## Combined logo update
+
+The arched rooftop emblem now includes the preferred serif 15F lettering and a gold upward arrow. The header, footer, favicon and hero picture use the combined identity. Lettering is outlined vector artwork so the logo does not depend on installed fonts. Light and dark versions are included.
+
+
+## Welcome page update
+
+The root welcome page now has four choices. Marko’s 15F Rooftop uses the combined logo, Coming soon status, the A$69 starting price and a link to `/15f-rooftop/index.html`. The ZIP includes the root `index.html` and `shared/welcome.css`, which must replace those files in the website repository before deployment. The welcome and rooftop review HTML files link to each other locally when kept in the same folder.

@@ -15,38 +15,62 @@
     updateEstimate();
   }));
   document.getElementById('year').textContent = new Date().getFullYear();
-  const dialog = document.getElementById('gallery-dialog');
-  const items = [...document.querySelectorAll('.gallery-item')];
-  const image = document.getElementById('lightbox-image');
-  const caption = document.getElementById('lightbox-caption');
-  const counter = document.getElementById('lightbox-count');
+  const carousel = document.querySelector('.rooftop-slideshow');
+  const thumbs = [...carousel.querySelectorAll('[data-slide]')];
+  const photo = document.getElementById('slide-image');
+  const title = document.getElementById('slide-title');
+  const caption = document.getElementById('slide-caption');
+  const counter = document.getElementById('slide-count');
+  const details = document.getElementById('slide-details');
+  const stage = carousel.querySelector('.slide-stage');
+  const play = carousel.querySelector('[data-slide-play]');
   let index = 0;
-  let lastTrigger;
+  let timer;
+  let playing = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let visible = false;
+  let hovered = false;
+  let focused = false;
   const show = next => {
-    index = (next + items.length) % items.length;
-    const source = items[index].querySelector('img');
-    image.src = source.src;
-    image.alt = source.alt;
-    caption.textContent = items[index].dataset.caption;
-    counter.textContent = `${String(index + 1).padStart(2, '0')} / ${items.length}`;
+    index = (next + thumbs.length) % thumbs.length;
+    const thumb = thumbs[index];
+    const source = thumb.querySelector('img');
+    photo.src = source.src;
+    photo.alt = source.alt;
+    title.textContent = thumb.dataset.title;
+    caption.textContent = thumb.dataset.caption;
+    counter.innerHTML = `${String(index + 1).padStart(2, '0')} <span>/ ${thumbs.length}</span>`;
+    stage.setAttribute('aria-label', `${index + 1} of ${thumbs.length}`);
+    thumbs.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
   };
-  items.forEach((item, i) => item.addEventListener('click', () => {
-    lastTrigger = item;
-    show(i);
-    dialog.showModal();
-    document.body.classList.add('lightbox-open');
-  }));
-  dialog.querySelector('[data-close]').addEventListener('click', () => dialog.close());
-  dialog.querySelector('[data-prev]').addEventListener('click', () => show(index - 1));
-  dialog.querySelector('[data-next]').addEventListener('click', () => show(index + 1));
-  dialog.addEventListener('keydown', event => {
-    if (event.key === 'ArrowLeft') { event.preventDefault(); show(index - 1); }
-    if (event.key === 'ArrowRight') { event.preventDefault(); show(index + 1); }
+  const schedule = () => {
+    window.clearTimeout(timer);
+    if (playing && visible && !hovered && !focused && !document.hidden) {
+      timer = window.setTimeout(() => { show(index + 1); schedule(); }, 6500);
+    }
+  };
+  const updatePlayback = () => {
+    play.textContent = playing ? 'Pause slides' : 'Play slides';
+    play.setAttribute('aria-pressed', String(!playing));
+    details.setAttribute('aria-live', playing ? 'off' : 'polite');
+    schedule();
+  };
+  const choose = next => { playing = false; show(next); updatePlayback(); };
+  thumbs.forEach((thumb, i) => thumb.addEventListener('click', () => choose(i)));
+  carousel.querySelector('[data-slide-prev]').addEventListener('click', () => choose(index - 1));
+  carousel.querySelector('[data-slide-next]').addEventListener('click', () => choose(index + 1));
+  play.addEventListener('click', () => {
+    playing = !playing;
+    focused = false;
+    hovered = false;
+    updatePlayback();
   });
-  dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
-  dialog.addEventListener('close', () => {
-    document.body.classList.remove('lightbox-open');
-    lastTrigger?.focus({ preventScroll: true });
-  });
+  carousel.addEventListener('mouseenter', () => { hovered = true; schedule(); });
+  carousel.addEventListener('mouseleave', () => { hovered = false; schedule(); });
+  carousel.addEventListener('focusin', () => { focused = true; schedule(); });
+  carousel.addEventListener('focusout', event => { focused = carousel.contains(event.relatedTarget); schedule(); });
+  document.addEventListener('visibilitychange', schedule);
+  new IntersectionObserver(entries => { visible = entries[0].isIntersecting; schedule(); }, { threshold: .15 }).observe(carousel);
+  show(0);
+  updatePlayback();
   updateEstimate();
 })();
