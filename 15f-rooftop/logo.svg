@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 510 150" fill="none" role="img" aria-labelledby="title desc">
+<title id="title">Marko’s 15F Rooftop</title><desc id="desc">An arched rooftop monogram with a rising sun, in olive green and warm gold.</desc>
+<path d="M14 132V67a54 54 0 0 1 108 0v65" stroke="#36483E" stroke-width="2.5"/>
+<path d="M24 132V68a44 44 0 0 1 88 0v64" stroke="#B8955E" stroke-width="1"/>
+<path d="M47 48a21 21 0 0 1 42 0M42 48h52M68 14v7M42 22l4 6M94 22l-4 6" stroke="#B8955E" stroke-width="1.8"/>
+<text x="68" y="101" text-anchor="middle" fill="#36483E" font-family="Georgia,serif" font-size="45" letter-spacing="-3">15F</text>
+<path d="M35 113h66M44 120h48" stroke="#B8955E" stroke-width="1.5"/>
+<text x="157" y="48" fill="#36483E" font-family="Arial,sans-serif" font-size="15" letter-spacing="6">MARKO’S</text>
+<text x="153" y="100" fill="#36483E" font-family="Georgia,serif" font-size="52" letter-spacing="1">ROOFTOP</text>
+<text x="157" y="127" fill="#786A54" font-family="Arial,sans-serif" font-size="10" letter-spacing="3">DRINKS · BITES · SKYLINE</text>
+</svg>
