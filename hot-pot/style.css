@@ -41,3 +41,10 @@ h2,h3{font-family:"Arial Rounded MT Bold","Arial Black",Arial,sans-serif;letter-
 /* Coming soon status */
 .hero .coming-soon-label{font-size:19px;letter-spacing:.02em;padding:11px 20px;margin-bottom:22px;border:1px solid #ffffff70}
 @media(max-width:720px){.hero .coming-soon-label{font-size:17px;margin-bottom:20px}}
+
+
+/* Keep the centre of the soup pot below the overlaid header. */
+.mk-hotpot-page .im-hero-hotpot > img.im-hero-image { object-position: 55% 22%; }
+@media (max-width: 700px) {
+  .mk-hotpot-page .im-hero-hotpot > img.im-hero-image { object-position: 60% 22%; }
+}
