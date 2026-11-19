@@ -198,3 +198,31 @@ body.immersive{--im-ink:#122d3a;--im-accent:#d9bb80;--im-pale:#edf2f5;--im-paper
   .im-welcome .im-experiences-section { padding-top: 36px !important; }
   .im-welcome .im-section-heading h1 { font-size: 42px; }
 }
+
+/* Restaurant hours and tap-to-call details stay visible in the header. */
+.im-restaurant .im-header {
+  display: grid; grid-template-columns: auto minmax(0,1fr);
+  gap: 8px 24px !important; padding-top: 12px; padding-bottom: 12px;
+  background: #142d39f5; backdrop-filter: blur(18px);
+}
+.im-restaurant .im-header > .im-brand { grid-column: 1; grid-row: 1; }
+.im-restaurant .im-header > :is(.im-navigation,.im-menu-toggle) {
+  grid-column: 2; grid-row: 1; justify-self: end;
+}
+.im-restaurant-header-details {
+  grid-column: 1 / -1; grid-row: 2; display: flex; justify-content: flex-end;
+  align-items: center; flex-wrap: wrap; gap: 8px 24px; color: #fffdf6;
+  font: 400 14px/1.5 Arial,sans-serif;
+}
+.im-restaurant-header-details p { margin: 0; font: inherit; white-space: nowrap; }
+.im-restaurant-header-details a {
+  font: 700 14px/1.5 Arial,sans-serif; color: #f0d399;
+  text-decoration: underline; text-underline-offset: 3px; white-space: nowrap;
+}
+@media (max-width:700px) {
+  .im-restaurant-header-details { justify-content: space-between; gap: 6px 12px; }
+  .im-restaurant #main section[id] { scroll-margin-top: 24px !important; }
+}
+@media (max-width:360px) {
+  .im-restaurant-header-details, .im-restaurant-header-details a { font-size: 13px; }
+}
