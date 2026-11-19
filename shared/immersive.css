@@ -239,3 +239,46 @@ body.immersive{--im-ink:#122d3a;--im-accent:#d9bb80;--im-pale:#edf2f5;--im-paper
   .im-restaurant-header-details .im-header-wheel { flex-basis: 100%; min-height: 40px; }
   .im-restaurant #main section[id] { scroll-margin-top: 72px !important; }
 }
+
+/* Readable rooftop enquiry copy on the light skyline palette. */
+.im-rooftop #enquire { color: #193b50; }
+.im-rooftop #enquire .enquiry-copy h2 { color: #193b50; }
+.im-rooftop #enquire .enquiry-copy h2 em { color: #285372; }
+.im-rooftop #enquire .enquiry-copy > p:not(.eyebrow) { color: #435f70; }
+.im-rooftop #enquire .enquiry-copy .eyebrow,
+.im-rooftop #enquire .contact-list dt { color: #285372; font-size: 12px; }
+.im-rooftop #enquire .contact-list dd { color: #193b50; font-size: 16px; }
+.im-rooftop #enquire .contact-list a { color: #1f5274; text-decoration: underline; text-underline-offset: 4px; }
+.im-rooftop #enquire .enquiry-copy .pill {
+  color: #254e68; background: #e7f0f7; border-color: #6c8da3; font-size: 12px; line-height: 1.5;
+}
+.im-rooftop #enquire .enquiry-copy .pill i { background: #285372; }
+
+/* Real dessert photographs and a clear comparison of all three styles. */
+.im-dessert .sweet-section { color: #292858; }
+.im-dessert .sweet-section :is(h2,h3) { color: #292858; }
+.im-dessert .sweet-section h2 em { color: #64409a; }
+.im-dessert .dessert-grid { gap: 28px; }
+.im-dessert .dessert-item { display: flex; flex-direction: column; align-items: stretch; min-width: 0; }
+.im-dessert .dessert-photo { margin: 0 0 22px; }
+.im-dessert .dessert-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; border-radius: 10px; }
+.im-dessert .dessert-photo figcaption { margin-top: 10px; color: #505477; font: 400 13px/1.6 Arial,sans-serif; }
+.im-dessert .dessert-item h3 { align-self: auto; margin: 0; }
+.im-dessert .dessert-item h4 { align-self: auto; margin: 7px 0 14px; color: #64409a; font-size: 16px; }
+.im-dessert .dessert-item > p { color: #41475f; max-width: none; margin: 0; }
+.im-dessert .dessert-facts { margin: 20px 0 0; }
+.im-dessert .dessert-facts > div { border-top: 1px solid #bcb4d9; padding: 14px 0; }
+.im-dessert .dessert-facts dt { color: #573b89; font: 700 13px/1.5 Arial,sans-serif; letter-spacing: .05em; text-transform: uppercase; }
+.im-dessert .dessert-facts dd { color: #41475f; font: 400 16px/1.7 Arial,sans-serif; margin: 5px 0 0; }
+.im-dessert .sweet-section .menu-note { color: #505477; }
+.im-dessert .dessert-photo-credits { max-width: 900px; margin: 28px auto 0; border-top: 1px solid #bcb4d9; padding-top: 18px; color: #41475f; }
+.im-dessert .dessert-photo-credits summary { font: 600 14px/1.6 Arial,sans-serif; color: #403577; cursor: pointer; }
+.im-dessert .dessert-photo-credits a { color: #4b3588; text-decoration: underline; text-underline-offset: 3px; }
+.im-dessert .dessert-photo-credits li { font: 400 14px/1.7 Arial,sans-serif; margin-bottom: 8px; }
+.im-dessert .sweet-quote { color: #292858; }
+.im-dessert .sweet-quote em { color: #523b83; }
+.im-dessert .sweet-quote > span:last-child { color: #523b83; }
+@media (max-width:720px) {
+  .im-dessert .dessert-grid { gap: 44px; }
+  .im-dessert .dessert-photo img { aspect-ratio: 4/3; }
+}
