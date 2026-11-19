@@ -17,7 +17,7 @@
     if(n){ctx.save();ctx.translate(c,c);ctx.rotate(start+step/2);ctx.fillStyle=[2,5].includes(i%8)?'#102446':'white';ctx.font=`bold ${n>20?18:25}px Arial`;ctx.textAlign=n>16?'right':'center';ctx.textBaseline='middle';let title=items[i].name;const max=n>16?285:250;while(ctx.measureText(title).width>max&&title.length>6)title=title.slice(0,-2)+'…';ctx.fillText(title,n>16?415:280,0);ctx.restore();}
    }
    $('#empty-message').hidden=n>0;$('#custom-hub').hidden=n===0;
-   spin.disabled=n<2||busy;spin.textContent=n<2?(n===0?'Add at least 2 choices':'Add one more choice'):'Spin my wheel ↻';
+   spin.disabled=n<2||busy;spin.textContent=n<2?(n===0?'Add at least 2 choices':'Add one more choice'):(mode==='markos'?'Spin Marko’s Wheel':'Spin my wheel');
    $('#custom-note').textContent=n===0?'Your wheel is a blank canvas.':`${n} choices. Each one gets an equal chance.`;
  }
  function resetWheel(){canvas.style.transition='none';canvas.style.transform='rotate(0deg)';rotation=0;void canvas.offsetWidth;canvas.style.transition='';$('#pick-card').hidden=true;draw();}
@@ -35,7 +35,7 @@
    const nodes=list.map(d=>{const b=document.createElement('button'),name=document.createElement('strong'),plus=document.createElement('span');b.type='button';name.textContent=d.name;const added=choices.some(x=>x.name===d.name);plus.textContent=added?'✓':'+';b.disabled=added;b.setAttribute('aria-label',`${added?'Added':'Add'} ${d.name}`);b.append(name,plus);b.addEventListener('click',()=>addItems([d]));return b;});
    if(!nodes.length){const p=document.createElement('p');p.textContent='No matching dish. You can enter it as your own choice above.';nodes.push(p);}$('#menu-picks').replaceChildren(...nodes);
  }
- function setMode(next){if(busy)return;mode=next;$('#custom-mode').setAttribute('aria-pressed',String(next==='custom'));$('#markos-mode').setAttribute('aria-pressed',String(next==='markos'));$('#custom-builder').hidden=next!=='custom';$('#markos-builder').hidden=next!=='markos';feedback('');resetWheel();}
+ function setMode(next){if(busy)return;mode=next;$('#custom-mode').setAttribute('aria-pressed',String(next==='custom'));$('#markos-mode').setAttribute('aria-pressed',String(next==='markos'));$('#custom-builder').hidden=next!=='custom';$('#markos-builder').hidden=next!=='markos';$('.builder').setAttribute('aria-labelledby',next==='markos'?'markos-title':'builder-title');feedback('');resetWheel();}
  function randomIndex(n){if(!window.crypto?.getRandomValues)return Math.floor(Math.random()*n);const v=new Uint32Array(1),limit=0x100000000-(0x100000000%n);do{crypto.getRandomValues(v);}while(v[0]>=limit);return v[0]%n;}
  function finish(){
    if(!busy||!pending)return;clearTimeout(timer);const dish=pending;pending=null;busy=false;
@@ -52,5 +52,5 @@
  $('#clear-choices').addEventListener('click',()=>{if(busy)return;choices=[];feedback('Your wheel is empty. Ready for new ideas.');renderChoices();resetWheel();renderMenu();});
  $('#custom-mode').addEventListener('click',()=>setMode('custom'));$('#markos-mode').addEventListener('click',()=>setMode('markos'));
  $('#customise-menu').addEventListener('click',()=>{setMode('custom');addItems(menu);});
- renderChoices();renderMenu();draw();
+ renderChoices();renderMenu();setMode('markos');
 })();

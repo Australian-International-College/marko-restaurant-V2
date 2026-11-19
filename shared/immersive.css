@@ -135,3 +135,66 @@ body.immersive{--im-ink:#122d3a;--im-accent:#d9bb80;--im-pale:#edf2f5;--im-paper
   .im-mobile-book a:first-child { background:#193d4c;color:#fff; }
   .im-restaurant .im-footer { padding-bottom:120px; }
 }
+
+
+/* Dark text on the pale catering planning section. */
+.im-catering .planning { background: #ebf0f3; color: #122d3a; }
+.im-catering .planning :is(h2,h3) { color: #122d3a; }
+.im-catering .planning :is(.eyebrow,h2 em),
+.im-catering .planning .planning-steps li > span { color: #765923; }
+.im-catering .planning .planning-steps p { color: #43576a; }
+.im-catering .planning .planning-steps li { border-top-color: #b8c7cf; }
+
+/* Massage Centre joins the shared experience selection. */
+.im-service-mobile-label { display: none; }
+.im-service-massage img { padding: 3px; }
+.im-service-massage:hover { background: #dbeefa; color: #183c68; }
+.im-panel-massage { grid-column: 1 / -1; height: 520px; }
+.im-panel-massage .im-panel-photo { object-position: 50% 46%; }
+.im-panel-massage .im-panel-shade {
+  background: linear-gradient(90deg,#102d46e8 0%,#102d46a6 43%,#102d4620 100%),
+              linear-gradient(0deg,#102d4680,transparent 80%);
+}
+.im-panel-massage .im-panel-copy { max-width: 650px; }
+.im-panel-massage .im-panel-logo {
+  width: 160px; height: 112px; padding: 12px; border-radius: 8px; margin-bottom: 22px;
+}
+.im-panel-massage .im-panel-link small {
+  display: inline-block; margin-left: 16px; font: 12px/1.5 Arial,sans-serif; color: #d5e6ed;
+}
+@media (max-width:1450px) {
+  .im-experiences .im-family span { display: none; }
+}
+@media (max-width:1000px) {
+  .im-service-label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .im-service-mobile-label { display: inline; }
+}
+@media (max-width:700px) {
+  .im-experiences nav { grid-template-columns: repeat(5,minmax(0,1fr)); gap: 3px; }
+  .immersive .im-experiences { padding-inline: 12px; }
+  .im-experiences .im-family span { display: inline; }
+  .immersive .im-service { padding-inline: 2px; font-size: 14px; }
+  .im-panel-massage { height: 590px; }
+  .im-panel-massage .im-panel-copy { padding: 32px; }
+  .im-panel-massage .im-panel-photo { object-position: 33% 50%; }
+  .im-panel-massage .im-panel-shade { background: linear-gradient(0deg,#102d46f0,#102d46a1 60%,#102d4620); }
+  .im-panel-massage .im-panel-link small { display: block; margin: 8px 0 0; }
+}
+@media (max-width:360px) {
+  .immersive .im-service { font-size: 13px; }
+}
+
+/* Open the welcome page directly on the service choices. */
+.im-welcome .im-header { background: #142d39; }
+.im-welcome #main { padding-top: 140px; }
+.im-welcome .im-experiences-section { padding-top: 48px !important; }
+.im-welcome .im-section-heading { margin-bottom: 36px; }
+.im-welcome .im-section-heading h1 {
+  font-size: clamp(38px,4.5vw,60px); line-height: 1.1; margin: 0 0 18px;
+}
+.im-welcome .im-section-heading .im-eyebrow { margin-bottom: 16px; }
+@media (max-width:700px) {
+  .im-welcome #main { padding-top: 166px; }
+  .im-welcome .im-experiences-section { padding-top: 36px !important; }
+  .im-welcome .im-section-heading h1 { font-size: 42px; }
+}

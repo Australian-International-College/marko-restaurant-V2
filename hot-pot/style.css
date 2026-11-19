@@ -48,3 +48,17 @@ h2,h3{font-family:"Arial Rounded MT Bold","Arial Black",Arial,sans-serif;letter-
 @media (max-width: 700px) {
   .mk-hotpot-page .im-hero-hotpot > img.im-hero-image { object-position: 60% 22%; }
 }
+
+/* Clear contrast for the hot pot and grill guide on its pale background. */
+.mk-hotpot-page .experience { color: #182d55; }
+.mk-hotpot-page .experience :is(h2,h3) { color: #182d55; }
+.mk-hotpot-page .experience h2 em {
+  color: #124ac2;
+  text-decoration-color: #124ac2;
+}
+.mk-hotpot-page .experience .eyebrow { color: #124ac2; }
+.mk-hotpot-page .experience .section-heading > p,
+.mk-hotpot-page .experience .steps p { color: #43576a; }
+.mk-hotpot-page .experience .step-top span { color: #b21d35; }
+.mk-hotpot-page .experience .step-top svg { stroke: #124ac2; }
+.mk-hotpot-page .experience .steps article { border-top-color: #a9b4c4; }
